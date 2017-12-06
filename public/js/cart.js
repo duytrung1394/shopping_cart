@@ -1,7 +1,7 @@
 $(document).ready(function (){
 
 	$(".quantity").change(function (){
-		console.log('xxxx');
+		
 		var masp = $(this).attr("data-masp");
 		var soluong = $(this).val();
 

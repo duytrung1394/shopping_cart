@@ -3,13 +3,10 @@
 <html>
 <head>
 	<title>Giỏ hàng</title>
-	<base href="http://localhost/www/CartMVC/01/public/">
+	<base href="http://localhost/www/CartMVC/shoppingcart/public/">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/mycss.css">
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/cart.js"></script>
-	<script type="text/javascript" src="js/del_sanpham.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
+	
 	<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 </head>
 <body>
@@ -79,6 +76,8 @@
 					<?php 
 						$tongtien += $thanhtien;
 						}
+						$_SESSION['tongtien'] =$tongtien;
+						
 					?>
 					<tr>
 						<td colspan="4" style="text-align: center;">Tổng tiền</td>
@@ -89,6 +88,7 @@
 					<?php		
 						}
 					?>
+
 				</table>
 				<div class="col-xs-6 col-sm-6 col-md-9">
 					<a href="index.php">Tiếp tục mua sắm</a>
@@ -145,8 +145,8 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-default">Thanh toán</button>
-									<div class="alert alert-success" id="success"><strong>Success!</strong> Bạn đã thanh toán thành công Nhấp vào <a href="index.php">đây</a> để trở về
+								<button type="submit" class="btn btn-default btn-checkout">Thanh toán</button>
+									<div class="alert alert-success" id="success"><strong>Success!</strong> Bạn đã thanh toán thành công Nhấp vào <a href="">đây</a> để trở về
 									</div>
 									<div class="alert alert-warning" id="errors"><strong>Warning!</strong> Có lỗi xảy ra
 									</div>
@@ -165,7 +165,12 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/cart.js"></script>
+	<script type="text/javascript" src="js/del_sanpham.js"></script>
+	<script type="text/javascript" src="js/form.js"></script>
+	
 </div>
 </body>
 </html>

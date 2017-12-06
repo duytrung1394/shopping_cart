@@ -1,5 +1,5 @@
 <?php
-	define('baseURL','http://localhost/www/CartMVC/01/public/');
+	define('baseURL','http://localhost/www/CartMVC/shoppingcart/public/');
 
 	include "../app/init.php";
 

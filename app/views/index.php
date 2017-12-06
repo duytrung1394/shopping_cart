@@ -1,9 +1,9 @@
-
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Giỏ hàng</title>
-	<base href="http://localhost/www/CartMVC/01/public/">
+	<base href="http://localhost/www/CartMVC/shoppingcart/public/">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/mycss.css">
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -13,7 +13,7 @@
 		<div id="content">
 			<div class="row" id="header">
 
-				<div class="col-xs-12 col-md-8">Có 
+				<div class="col-xs-12 col-md-8">Có <?php if(isset($_SESSION['cart'])) echo count($_SESSION['cart']);?> 
 				Sản phẩm trong <a href="cart.php">giỏ hàng</a></div>
 				<div class="col-xs-6 col-md-4">
 					<a class="btn btn-default" href="" role="button">Link</a>

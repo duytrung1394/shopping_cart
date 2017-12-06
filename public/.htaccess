@@ -2,7 +2,7 @@ Options -MultiViews
 
 RewriteEngine On
 
-RewriteBase /www/CartMVC/01/public
+RewriteBase /www/CartMVC/shoppingcart/public
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

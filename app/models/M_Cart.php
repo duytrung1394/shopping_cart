@@ -20,5 +20,26 @@
 			$result = $this->loadAllRows($param);
 			return $result;
 		}
-		
+		public function checkout($hoten, $sdt, $diachi,$totalprice)
+		{
+			$sql = "INSERT INTO hoadon(ngay,hoten,sodienthoai,diachi,tongtien) VALUES(?,?,?,?,?)";
+			$this->setQuery($sql);
+			$ngay = date("Y-m-d H:i:s");
+			$param = array($ngay,$hoten,$sdt,$diachi,$totalprice);
+			$this->execute($param);
+		}
+		public function maxMaHoaDon()
+		{
+			$sql = "SELECT max(mahd) as maxhd FROM hoadon";
+			$this->setQuery($sql);
+			return $this->loadRow();
+		}
+
+		public function addChitiethoadon($mahd,$masp,$soluong)
+		{
+			$sql = "INSERT INTO chitiet_hoadon(mahd,masp,soluong) VALUES(?,?,?)";
+			$this->setQuery($sql);
+			$param = array($mahd,$masp,$soluong);
+			$this->execute($param);
+		}
 	}
