@@ -40,7 +40,9 @@
 
 					if($flag == false)
 					{
-						echo "<tr><td colspan='5' style='text-align:center'>Chưa có sản phẩm nào</td></tr>";
+						echo "<tr><td colspan='5' style='text-align:center'>Chưa có sản phẩm nào</td></tr><div class='col-xs-6 col-sm-6 col-md-9'>
+							<a href='index.php'>Tiếp tục mua sắm</a>
+						</div>";
 					}else{
 						$items = $param['items'];
 						$tongtien = 0;
@@ -85,19 +87,27 @@
 							<?=number_format($tongtien);?> đ
 						</td>
 					</tr>
-					<?php		
-						}
-					?>
+					
 
 				</table>
 				<div class="col-xs-6 col-sm-6 col-md-9">
 					<a href="index.php">Tiếp tục mua sắm</a>
 				</div>
+
 				<div class="col-xs-6 col-sm-6 col-md-3">
+					<?php 
+					// if(isset($_SESSION['cart']))
+					{
+						?>
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Xác nhận và thanh toán</button>
+					<?php
+					}
+					?>
 				</div>
 				
-				
+				<?php		
+						}
+				?>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-4">
 			</div>

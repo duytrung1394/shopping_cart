@@ -32,24 +32,38 @@
 		public function thanhtoan()
 		{
 			if(isset($_SESSION['cart']))
-			{
+			{	
+				$flag = false;
 
-				$hoten 	= 	$_POST['hoten'];
-				$sdt 	= 	$_POST['sdt'];
-				$diachi =	$_POST['diachi'];
-				$totalprice = $_SESSION['tongtien'];
-
-				$cart = $this->model('M_Cart');
-
-				$max = $cart->checkout($hoten,$sdt,$diachi,$totalprice);
-				
-				$maxhd = $max->maxhd;
 				foreach($_SESSION['cart'] as $masp => $soluong)
 				{
-					$cart->addChitiethoadon($maxhd,$masp,$soluong);
+					if(isset($masp))
+					{
+						$flag = true; 
+					}				
 				}
-				$message = "success";
-				session_destroy();
+				if($flag == true)
+				{
+					$hoten 	= 	$_POST['hoten'];
+					$sdt 	= 	$_POST['sdt'];
+					$diachi =	$_POST['diachi'];
+					$totalprice = $_SESSION['tongtien'];
+
+					$cart = $this->model('M_Cart');
+
+					$max = $cart->checkout($hoten,$sdt,$diachi,$totalprice);
+					
+					$maxhd = $max->maxhd;
+					foreach($_SESSION['cart'] as $masp => $soluong)
+					{
+						$cart->addChitiethoadon($maxhd,$masp,$soluong);
+					}
+					$message = "success";
+					session_destroy();
+				}
+				else{
+					$message ="fail";
+				}
 				
 			}else{
 				$message ="fail";
