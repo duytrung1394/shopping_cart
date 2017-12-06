@@ -49,9 +49,9 @@
 					$diachi =	$_POST['diachi'];
 					$totalprice = $_SESSION['tongtien'];
 
-					$cart = $this->model('M_Cart');
-
-					$max = $cart->checkout($hoten,$sdt,$diachi,$totalprice);
+					$cart  = $this->model('M_Cart');
+					
+					$max   = $cart->checkout($hoten,$sdt,$diachi,$totalprice);
 					
 					$maxhd = $max->maxhd;
 					foreach($_SESSION['cart'] as $masp => $soluong)
