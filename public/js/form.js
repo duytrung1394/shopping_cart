@@ -34,16 +34,19 @@ $(document).ready(function (){
 			$.ajax({
 				url: "cart/thanhtoan", 
 				type: "post",
+				dataType: "json",
 				data: "hoten="+hoten+"&sdt="+sdt+"&diachi="+diachi,
 				async: true,
-				success:function(kq)
-				{
-					if(kq== "true")
+				success:function(result)
+				{	
+					console.log(result);
+					if(result.message == "success")
 					{
 						$("#success").fadeIn();
 					}else{
 						$("#errors").fadeIn();
-					}
+						$("#success").fadeOut();
+					}	
 				}
 			});
 			return false;

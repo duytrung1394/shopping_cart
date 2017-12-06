@@ -31,27 +31,34 @@
 
 		public function thanhtoan()
 		{
-			$hoten 	= 	$_POST['hoten'];
-			$sdt 	= 	$_POST['sdt'];
-			$diachi =	$_POST['diachi'];
-			$totalprice = $_SESSION['tongtien'];
+			if(isset($_SESSION['cart']))
+			{
 
-			$cart = $this->model('M_Cart');
+				$hoten 	= 	$_POST['hoten'];
+				$sdt 	= 	$_POST['sdt'];
+				$diachi =	$_POST['diachi'];
+				$totalprice = $_SESSION['tongtien'];
 
-			if($cart->checkout($hoten,$sdt,$diachi,$totalprice))
-			{	//neu them hoa don thanh cong thi them chi tiet hoa don
-				$max = $cart->maxMaHoaDon();
-				$maxMhd = $max->maxhd;
+				$cart = $this->model('M_Cart');
+
+				$max = $cart->checkout($hoten,$sdt,$diachi,$totalprice);
+				
+				$maxhd = $max->maxhd;
 				foreach($_SESSION['cart'] as $masp => $soluong)
 				{
-					$cart->addChitiethoadon($maxMhd,$masp,$soluong);
+					$cart->addChitiethoadon($maxhd,$masp,$soluong);
 				}
+				$message = "success";
 				session_destroy();
-				echo "true";
+				
 			}else{
-				echo "false";
+				$message ="fail";
 			}
-
+			echo json_encode(
+		 		array(
+		 			"message" => "$message"
+		 		)
+		 	);
 		}
 	}
 ?>

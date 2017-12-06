@@ -26,14 +26,16 @@
 			$this->setQuery($sql);
 			$ngay = date("Y-m-d H:i:s");
 			$param = array($ngay,$hoten,$sdt,$diachi,$totalprice);
-			$this->execute($param);
+			if($this->execute($param)){
+				$sql2 = "SELECT max(mahd) as maxhd FROM hoadon";
+				$this->setQuery($sql2);
+				return $this->loadRow();
+			}
 		}
-		public function maxMaHoaDon()
-		{
-			$sql = "SELECT max(mahd) as maxhd FROM hoadon";
-			$this->setQuery($sql);
-			return $this->loadRow();
-		}
+		// public function maxMaHoaDon()
+		// {
+			
+		// }
 
 		public function addChitiethoadon($mahd,$masp,$soluong)
 		{

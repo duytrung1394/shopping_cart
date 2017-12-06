@@ -146,10 +146,10 @@
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
 								<button type="submit" class="btn btn-default btn-checkout">Thanh toán</button>
-									<div class="alert alert-success" id="success"><strong>Success!</strong> Bạn đã thanh toán thành công Nhấp vào <a href="">đây</a> để trở về
-									</div>
-									<div class="alert alert-warning" id="errors"><strong>Warning!</strong> Có lỗi xảy ra
-									</div>
+								<div class="alert alert-success" id="success"><strong>Success!</strong> Bạn đã thanh toán thành công Nhấp vào <a href="">đây</a> để trở về
+								</div>
+								<div class="alert alert-warning" id="errors"><strong>Warning!</strong> Có lỗi xảy ra
+								</div>
 								</div>
 								
 							</div>
