@@ -91,7 +91,7 @@
 
 				</table>
 				<div class="col-xs-6 col-sm-6 col-md-9">
-					<a href="index.php">Tiếp tục mua sắm</a>
+					<a href="">Tiếp tục mua sắm</a>
 				</div>
 
 				<div class="col-xs-6 col-sm-6 col-md-3">
