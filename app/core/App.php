@@ -1,48 +1,64 @@
 <?php 
 	class App
 	{
-		protected $_controller = "home";
-		protected $_method = "index";
+		protected $_controller = null;
+		protected $_method = null;
 		protected $_params = [];
 		//getURL
 		public function __construct()
 		{	
 			//get url;
-			$url = $this->getURL();
+			$this->getURL();
 			//check controller exists
-		
-			if(file_exists("../app/controllers/" .$url[0].".php"))
-			{
-				$this->_controller = $url[0];
-				unset($url[0]);
-			}
-			
-			include_once "../app/controllers/" .$this->_controller.".php";
-			//call class
-			$this->_controller = new $this->_controller;
+			if(!$this->_controller){
 
-			//check method exists
-			if(isset($url[1]))
-			{
-				if(method_exists($this->_controller, $url[1]))
+				include_once "../app/controllers/home.php";
+				$home = new Home;
+				$home->index();
+
+			}elseif(file_exists("../app/controllers/" .$this->_controller.".php")){
+				// check for controller: does such a controller exist ?
+
+				include_once "../app/controllers/" .$this->_controller.".php";
+				//call class
+				$this->_controller = new $this->_controller;
+			
+				// check for method: does such a method exist in the controller ?
+				if(method_exists($this->_controller, $this->_method))
 				{
-					$this->_method = $url[1];
-					unset($url[1]);
+					if (!empty($this->_method)) {
+					// Call the method and pass arguments to it
+						call_user_func_array([$this->_controller,$this->_method],$this->_params); 	
+					}else{
+						$this->_controller->{$this->_method}();
+					}	
+
 				}else{
-				header("location:". baseURL ."home/index");
+					if(strlen($this->_method) == 0){
+						$this->_controller->index();
+					}else{
+						header('location:'.baseURL);
+					}	
 				}
-					
-			}
-			//lấy tham số là một mảng tham số
-			$this->_params = $url ? array_values($url): [];
-			//gọi method với tham số param
-			call_user_func_array([$this->_controller,$this->_method],$this->_params); 
+			}else{
+				include_once "../app/controllers/notfound.php";
+				$notfound = new NotFound;
+				$notfound->index();
+			}	
 		}
 		public function getURL()
 		{
 			if(isset($_GET['url']))
 			{
-				return $url = explode("/",rtrim($_GET['url']));
+				$url = explode("/",rtrim($_GET['url']));
+			
+				$this->_controller = isset($url[0]) ? $url[0] : null;
+
+				$this->_method = isset($url[1]) ? $url[1] : null;
+
+				unset($url[0], $url[1]);
+
+				$this->_params = $url ? array_values($url): [];
 			}
 		} 
 	}

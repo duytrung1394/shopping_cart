@@ -1,7 +1,9 @@
 <?php 
 	class Product extends Controller
  	{
-		
+		public function index(){
+			header('location:'.baseURL);
+		}
 		public function detail($id)
 		{
 			$products = $this->model('M_Product'); 			

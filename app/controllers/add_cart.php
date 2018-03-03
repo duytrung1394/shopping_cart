@@ -11,7 +11,7 @@
 				$soluong = 1;
 			}
 			$_SESSION['cart'][$masp] = $soluong;
-			header("location:". baseURL ."cart/chitiet");
+			header("location:". baseURL ."cart");
 			exit();
 		}
 	}

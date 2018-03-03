@@ -5,13 +5,15 @@
 	<base href="http://localhost/www/CartMVC/shoppingcart/public/"> 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/mycss.css">
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
 </head>
 <body>
 	<div class="container">
 	<div id="content">
 		<div class="row">
 			<?php 
+				if($param['product']){
+                    
 			$product = $param['product'];
 			?>
 			<div class="media">
@@ -29,9 +31,13 @@
 			 	</div>
 			  </div>
 			</div>
-			
+                <?php } else{
+                        echo "Sản phẩm không tồn tại";
+                    }?>
 		</div>
 	</div>
 	</div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

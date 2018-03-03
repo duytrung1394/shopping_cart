@@ -1,7 +1,7 @@
 <?php session_start();
 	class Cart extends Controller
 	{
-		public function chitiet()
+		public function index()
 		{	
 			$arr= null;
 			if(isset($_SESSION['cart'])){
