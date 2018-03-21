@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Giỏ hàng</title>
-	<base href="http://localhost/www/CartMVC/shoppingcart/public/"> 
+	<base href="<?=baseURL?>"> 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/mycss.css">
 	

@@ -26,7 +26,7 @@
 				// check for method: does such a method exist in the controller ?
 				if(method_exists($this->_controller, $this->_method))
 				{
-					if (!empty($this->_method)) {
+					if (!empty($this->_params)) {
 					// Call the method and pass arguments to it
 						call_user_func_array([$this->_controller,$this->_method],$this->_params); 	
 					}else{

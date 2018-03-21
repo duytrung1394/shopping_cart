@@ -5,7 +5,7 @@ class database{
     public $_cursor = NULL;        
     
     public function database() {
-        $this->_dbh = new PDO('mysql:host=localhost; dbname=giohang','root','');
+        $this->_dbh = new PDO('mysql:host=localhost; dbname=cart','root','123456');
         $this->_dbh->query('set names "utf8"');
     }
     
